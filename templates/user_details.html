@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+</head>
+<style>
+    *{
+        background-color: rgb(255, 201, 255);
+    }
+  table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+ td, th {
+  border: 1px solid white;
+  padding: 4px;
+  color: black;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+ th {
+  padding-top: 8x;
+  padding-bottom: 8px;
+  text-align: center;
+  background-color: #a200ff;
+  color: white;
+}
+h2{
+    color: #575555;
+}
+h3{
+    color: red;
+    text-decoration: solid;
+}
+h4{
+    color:blue;
+    text-decoration: solid;
+}
+.btn{
+    color: black;
+    background-color: lavender;
+    width: 100px;
+    padding:10px;
+}
+</style>
+<body>
+    <h2>MY DATA <(")></h2>
+    <h3>Name: </h3><h4>{{ user_details[1] }}</h4>
+    <h3>Email: </h3><h4>{{ user_details[2] }}</h4>
+    <h3>Date of Birth: </h3><h4>{{ user_details[3] }}</h4>
+    <h3>Gender: </h3><h4>{{ user_details[4] }}</h4>
+    <h3>Points: </h3><h4>{{ user_details[5] }}</h4>
+    <h3>My MOOOOOD  :) </h3>
+    <table>
+        <tr>
+            <th>Day</th>
+            <th>Mood</th>
+            <th>Type</th>
+            <th>Scale</th>
+            <th>Cause</th>
+            
+            
+            <th>Booster</th>
+            <th>Activity</th>
+        </tr>
+        {% for mood in user_mood_details %}
+        <tr>
+            <td>{{ mood[1] }}</td>
+            <td>{{ mood[4] }}</td>
+            <td>{{ mood[5] }}</td>
+            <td>{{ mood[2] }}</td>
+            <td>{{ mood[3] }}</td>
+            <td>{{ mood[6] }}</td>
+            <td>{{ mood[7] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <form action="/record_mood_page" method="get">
+        <input type="hidden" name="username" value="{{ user_details[1] }}">
+        <br>
+        <button type="submit" class="btn">Insert Mood</button>
+    </form>
+</body>
+</html>

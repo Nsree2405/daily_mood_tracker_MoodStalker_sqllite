@@ -1,0 +1,28 @@
+-- Create Users Table
+CREATE TABLE IF NOT EXISTS users (
+    uid INTEGER PRIMARY KEY AUTOINCREMENT,
+    uname TEXT NOT NULL UNIQUE,
+    email TEXT NOT NULL UNIQUE,
+    passkey TEXT NOT NULL
+);
+
+-- Create Moods Table
+CREATE TABLE IF NOT EXISTS moods (
+    mid INTEGER PRIMARY KEY AUTOINCREMENT,
+    mname TEXT NOT NULL UNIQUE,
+    type TEXT NOT NULL,
+    booster TEXT NOT NULL,
+    activity TEXT NOT NULL
+);
+
+-- Create Feels Table (Logs user's mood)
+CREATE TABLE IF NOT EXISTS feels (
+    fid INTEGER PRIMARY KEY AUTOINCREMENT,
+    uid INTEGER NOT NULL,
+    mid INTEGER NOT NULL,
+    day DATE NOT NULL,
+    scale INTEGER CHECK(scale BETWEEN 1 AND 10),
+    cause TEXT NOT NULL,
+    FOREIGN KEY (uid) REFERENCES users(uid) ON DELETE CASCADE,
+    FOREIGN KEY (mid) REFERENCES moods(mid) ON DELETE CASCADE
+);

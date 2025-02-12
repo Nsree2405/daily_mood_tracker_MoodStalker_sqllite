@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record Mood</title>
+</head>
+<style>
+    .myform{
+        border: 2px solid black;
+        margin: auto;
+        width: 50%;
+        padding: 30px; 
+        background-color: cornsilk;
+    }
+
+</style>
+<body>
+    <h2 style="text-align: center; color: indigo;">Share your mood and mood swings here!!!</h2>
+    <form action="/record_mood" method="post" class="myform">
+        <input type="hidden" id="username" name="username" value="{{ request.args.get('username') }}">
+        <input type="hidden" id="email" name="email" value="{{ request.args.get('email') }}">
+        <input type="hidden" id="password" name="password" value="{{ request.args.get('password') }}">
+        <label for="date">Date:</label><br>
+        <input type="date" id="date" name="date" required><br><br>
+        <br>
+        <label for="mood">Mood:</label><br>
+        <select id="mood" name="mood" required>
+            <option value="Angry">Angry</option>
+            <option value="Happy">Happy</option>
+            <option value="Joy">Joy</option>
+            <option value="Sad">Sad</option>
+            <option value="Fine">Fine</option>
+        </select><br><br>
+        
+        <label for="scale">Scale:</label><br>
+        <input type="number" id="scale" name="scale" min="1" max="5" required><br><br>
+        
+        <label for="cause">Cause:</label><br>
+        <textarea id="cause" name="cause" required></textarea><br><br>
+        
+        <button type="submit">Record Mood</button>
+    </form>
+</body>
+</html>

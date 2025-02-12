@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<style>
+    body{
+        background-color: plum;
+    }
+    h1{
+        text-align: center;
+        text-shadow: 25px;
+        text-decoration: solid;
+        color: indigo;
+    }
+    .myform{
+        margin: auto;
+        text-align: center;
+        display: block;
+        justify-content: center;
+        color: black;
+        background-color: antiquewhite;
+        width: 50%;
+    }
+</style>
+<body>
+    <h1>Mood Stalker</h1>
+    <form action="/get_user_details" method="post" class="myform">
+        <br>
+        <h2>LOGIN</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="email">email:</label>
+        <input type="text" id="email" name="email" required><br><br>
+        <label for="password">password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <button type="submit">Login</button>
+        <br><br>
+    </form>
+    <br>
+    <h1 style="color: crimson;text-decoration: solid;">THERE IS NO PATH TO HAPPINESS. HAPPINESS IS THE PATH...</h1>
+
+</body>
+</html>
